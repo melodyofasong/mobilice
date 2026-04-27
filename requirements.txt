@@ -2,4 +2,4 @@ streamlit
 phonenumbers
 pandas
 faker
-urllib
+requests
