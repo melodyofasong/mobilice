@@ -6,15 +6,6 @@ from utils.paywithchai import paywithchai_sidebar, paywithchai_footer
 
 st.set_page_config(page_title="Extract Phone Numbers from text", page_icon='📄')
 
-st.markdown("""
-    <style>
-    .stApp {
-        background-image: url("https://images.unsplash.com/photo-1523633589114-88eaf4b4f1a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGJsdWV8ZW58MHx8MHx8fDA%3D");
-        background-size: cover;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
 st.title("Extract Phone Numbers from Text")
 st.caption("Paste text or upload a file — get a clean CSV of every Indian phone number found.")
 

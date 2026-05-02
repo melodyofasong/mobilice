@@ -24,7 +24,7 @@ def paywithchai_sidebar():
 		""", unsafe_allow_html=True)
 	st.write("")
 	st.caption("phonenums-melodyofasong")
-	st.caption("Version 2.0.0")
+	st.caption("Version 2.1.2")
 
 def paywithchai_footer():
 	st.divider()
