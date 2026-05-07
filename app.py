@@ -41,6 +41,7 @@ with input_container:
 
 	with webscraping:
 		url = st.text_area(label="Paste the URL below:", placeholder="https://...")
+		st.caption("Enter only one URL at a time.")
 		try:
 			if url is not None:
 				opening = urllib.request.urlopen(str(url))

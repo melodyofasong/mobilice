@@ -23,8 +23,8 @@ def paywithchai_sidebar():
     	</a>
 		""", unsafe_allow_html=True)
 	st.write("")
-	st.caption("phonenums-melodyofasong")
-	st.caption("Version 2.1.2")
+	st.caption("mobilice")
+	st.caption("Version 2.1.3")
 
 def paywithchai_footer():
 	st.divider()
@@ -51,7 +51,7 @@ def paywithchai_footer():
 	st.divider()
 	col7, col8 = st.columns([4,1])
 	with col7:
-		st.caption("phonenums-melodyofasong")
+		st.caption("mobilice")
 
 	with col8:
-		st.caption("Version 2.0.0")
+		st.caption("Version 2.1.3")
