@@ -66,7 +66,7 @@ with st.container(border=True) as output_container:
     with st.status("Extracting phone numbers...", expanded=True) as status:
     	if extract:
         	if not st.session_state.input_text or st.session_state.input_text.strip() == "":
-        		st.warning("Input is empty.")
+        		st.toast("Input is empty.")
         	else:
         		try:
         			df = phonenums(st.session_state.input_text)
