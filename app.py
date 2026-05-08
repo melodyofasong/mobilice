@@ -23,13 +23,13 @@ with input_container:
 														"Upload File", "Web-Scraping"])
 	
 	with sample_data:
+		with st.expander("View sample input document", expanded=True):
+			st.text(sample_text)
 		sample_extract = st.button("Use this sample", icon=":material/arrow_forward:",shortcut="Enter")
 		if sample_extract:
 			sample_text = generate_sample_text()
 			st.session_state.input_text = sample_text
-		with st.expander("View sample input document", expanded=True):
-			st.text(sample_text)
-
+		
 	with rawtext:
 		placeholder_text = "Please contact our Delhi office at 98201 23456 or reach Priya on +91 84739 20011 for further assistance. You can also call our Mumbai helpline at 022-49871234 or WhatsApp Rajan at 7865043210 for quick responses."
 		st.session_state.input_text = st.text_area(label="Copy Paste below:", placeholder=placeholder_text, height=150)
