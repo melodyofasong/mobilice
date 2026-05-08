@@ -32,15 +32,16 @@ with input_container:
 
 	with rawtext:
 		placeholder_text = "Please contact our Delhi office at 98201 23456 or reach Priya on +91 84739 20011 for further assistance. You can also call our Mumbai helpline at 022-49871234 or WhatsApp Rajan at 7865043210 for quick responses."
-		st.session_state.input_text = st.text_area(label="Copy Paste below:", placeholder=placeholder_text, height=150)
+		raw_text = st.text_area(label="Copy Paste below:", placeholder=placeholder_text, height=150)
 
+		if raw_text:
+			st.session_state.input_text = raw_text
+			
 	with upload:
 		file = st.file_uploader("Upload File", type=['txt'], 
 			help="Upload any document containing phone numbers.")
 		if file is not None:
 			st.session_state.input_text = file.read().decode('utf-8', errors='ignore')
-		else:
-			st.session_state.input_text = None
 
 	with webscraping:
 		url = st.text_area(label="Paste the URL below:", placeholder="https://...")
@@ -49,8 +50,6 @@ with input_container:
 			if url is not None:
 				opening = urllib.request.urlopen(str(url))
 				st.session_state.input_text = opening.read().decode('utf-8')
-			else:
-				st.session_state.input_text = None
 		except Exception as e:
 			print(f"Kuch toh galat hai: {e}")
 
