@@ -45,7 +45,7 @@ with input_container:
 		try:
 			if url is not None:
 				opening = urllib.request.urlopen(str(url))
-				input_text = opening.read()
+				input_text = opening.read().decode('utf-8')
 			else:
 				input_text = None
 		except Exception as e:
