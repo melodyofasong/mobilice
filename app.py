@@ -36,7 +36,7 @@ with input_container:
 
 		if raw_text:
 			st.session_state.input_text = raw_text
-			
+
 	with upload:
 		file = st.file_uploader("Upload File", type=['txt'], 
 			help="Upload any document containing phone numbers.")
@@ -64,21 +64,20 @@ with st.container(border=True) as output_container:
         st.subheader("Results")
     with st.status("Extracting phone numbers...", expanded=True) as status:
     	if extract:
-        	if not st.session_state.input_text or st.session_state.input_text.strip() == "":
-        		st.toast("Input is empty.")
-        	else:
-        		try:
-        			df = phonenums(st.session_state.input_text)
-        			csv = df.to_csv().encode("utf-8")
-        			status.update(label=f"Extracted {len(df)} numbers", state="complete", expanded=False)
-        		except Exception as e:
-        			status.update(label=f"Something went wrong: {e}", state="error")
-
-        		with col4:
-        			download = st.download_button(label="Download as CSV", data=csv,
-                                   file_name="phonenumbers.csv", icon=":material/download:")
-        		if download:
-        			st.toast("Your csv file has been saved.")
-        		st.dataframe(df)
+			if not st.session_state.input_text or st.session_state.input_text.strip() == "":
+				st.toast("Input is empty.")
+			else:
+				try:
+					df = phonenums(st.session_state.input_text)
+					csv = df.to_csv().encode("utf-8")
+					status.update(label=f"Extracted {len(df)} numbers", state="complete", expanded=False)
+					with col4:
+						download = st.download_button(label="Download as CSV", data=csv,
+                           file_name="phonenumbers.csv", icon=":material/download:")
+					if download:
+						st.toast("Your csv file has been saved.")
+						st.dataframe(df)
+				except Exception as e:
+					status.update(label=f"Something went wrong: {e}", state="error")
 
 paywithchai_footer()
