@@ -24,7 +24,7 @@ def paywithchai_sidebar():
 		""", unsafe_allow_html=True)
 	st.write("")
 	st.caption("mobilice")
-	st.caption("Version 2.1.3")
+	st.caption("Version 2.2.4")
 
 def paywithchai_footer():
 	st.divider()
@@ -54,4 +54,4 @@ def paywithchai_footer():
 		st.caption("mobilice")
 
 	with col8:
-		st.caption("Version 2.1.3")
+		st.caption("Version 2.2.4")
