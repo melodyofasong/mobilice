@@ -6,6 +6,9 @@ from utils.paywithchai import paywithchai_sidebar, paywithchai_footer
 
 st.set_page_config(page_title="Extract Phone Numbers from text", page_icon='📄')
 
+if "input_text" not in st.session_state:
+	st.session_state.input_text = None
+
 st.title("Extract Phone Numbers from Text")
 st.caption("Paste text or upload a file — get a clean CSV of every Indian phone number found.")
 
