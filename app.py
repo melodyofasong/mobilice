@@ -48,10 +48,11 @@ with input_container:
 
 	with webscraping:
 		url = st.text_area(label="Paste the URL below:", placeholder="https://...")
-		st.caption("Enter only one URL at a time.")
+		st.caption("Enter only one URL at a time, note that JS-heavy sites dont work.")
 		try:
 			if url and url.strip():
-				opening = urllib.request.urlopen(str(url))
+				req = urllib.request.Request(url.strip(), headers={'User-Agent': 'Mozilla/5.0'})
+				opening = urllib.request.urlopen(req)
 				st.session_state.input_text = opening.read().decode('utf-8')
 		except Exception as e:
 			print(f"Kuch toh galat hai: {e}")
@@ -77,9 +78,10 @@ with st.container(border=True) as output_container:
 					with col4:
 						download = st.download_button(label="Download as CSV", data=csv,
                            file_name="phonenumbers.csv", icon=":material/download:")
+					st.dataframe(df)
 					if download:
 						st.toast("Your csv file has been saved.")
-						st.dataframe(df)
+					
 				except Exception as e:
 					status.update(label=f"Something went wrong: {e}", state="error")
 
