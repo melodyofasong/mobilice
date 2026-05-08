@@ -59,11 +59,11 @@ with input_container:
 		extract = st.button("Extract Numbers" , icon=":material/arrow_forward:",shortcut="Enter")
 
 with st.container(border=True) as output_container:
-    col3, col4 = st.columns([2.5, 1])
-    with col3:
-        st.subheader("Results")
-    with st.status("Extracting phone numbers...", expanded=True) as status:
-    	if extract:
+	col3, col4 = st.columns([2.5, 1])
+	with col3:
+		st.subheader("Results")
+	with st.status("Extracting phone numbers...", expanded=True) as status:
+		if extract:
 			if not st.session_state.input_text or st.session_state.input_text.strip() == "":
 				st.toast("Input is empty.")
 			else:
