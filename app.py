@@ -26,7 +26,7 @@ with input_container:
 		sample_text = generate_sample_text()
 		with st.expander("View sample input document", expanded=True):
 			st.text(sample_text)
-		sample_extract = st.button("Use this sample", icon=":material/arrow_forward:",shortcut="Enter")
+		sample_extract = st.button("Load this sample", icon=":material/arrow_forward:",shortcut="Enter")
 		if sample_extract:
 			st.session_state.input_text = sample_text
 
