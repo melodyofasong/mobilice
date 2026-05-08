@@ -50,7 +50,7 @@ with input_container:
 		url = st.text_area(label="Paste the URL below:", placeholder="https://...")
 		st.caption("Enter only one URL at a time.")
 		try:
-			if url is not None:
+			if url and url.strip():
 				opening = urllib.request.urlopen(str(url))
 				st.session_state.input_text = opening.read().decode('utf-8')
 		except Exception as e:
